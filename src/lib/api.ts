@@ -21,7 +21,7 @@ export const authApi = {
 }
 
 export const messageApi = {
-  send: (data: { receiver_id: string; encrypted_content: string }, sender_id: string) =>
+  send: (data: { receiver_id: string; encrypted_content: string; sender_encrypted_content?: string }, sender_id: string) =>
     api.post(`/messages/send?sender_id=${sender_id}`, data),
 
   getConversation: (userId: string, currentUserId: string) =>

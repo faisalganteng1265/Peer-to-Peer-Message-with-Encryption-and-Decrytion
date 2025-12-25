@@ -22,6 +22,13 @@ export const useAuth = create<AuthStore>()(
       login: async (email: string, password: string) => {
         const response = await authApi.login({ email, password })
         const user = response.data.user
+        const privateKey = response.data.private_key
+
+        // Save private key to localStorage if available
+        if (privateKey) {
+          CryptoClient.savePrivateKey(user.id, privateKey)
+        }
+
         set({ user, isAuthenticated: true })
       },
 

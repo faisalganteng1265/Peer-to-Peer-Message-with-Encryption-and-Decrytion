@@ -11,6 +11,7 @@ export interface Message {
   sender_id: string
   receiver_id: string
   encrypted_content: string
+  sender_encrypted_content?: string
   is_read: boolean
   created_at: string
 }

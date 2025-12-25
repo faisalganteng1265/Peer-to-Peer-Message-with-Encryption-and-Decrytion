@@ -12,6 +12,7 @@ create table messages (
   sender_id uuid references users(id) on delete cascade not null,
   receiver_id uuid references users(id) on delete cascade not null,
   encrypted_content text not null,
+  sender_encrypted_content text,
   is_read boolean default false,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

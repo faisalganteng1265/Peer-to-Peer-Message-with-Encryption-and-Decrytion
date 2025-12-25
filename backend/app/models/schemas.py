@@ -21,12 +21,14 @@ class User(BaseModel):
 class MessageCreate(BaseModel):
     receiver_id: str
     encrypted_content: str
+    sender_encrypted_content: Optional[str] = None
 
 class Message(BaseModel):
     id: str
     sender_id: str
     receiver_id: str
     encrypted_content: str
+    sender_encrypted_content: Optional[str] = None
     created_at: datetime
     is_read: bool = False
 
